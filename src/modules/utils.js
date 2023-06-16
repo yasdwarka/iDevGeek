@@ -35,6 +35,10 @@ function insertBefore(existingNode, newNode) {
   existingNode.parentNode.insertBefore(newNode, existingNode);
 }
 
+function numberWithSep(num) {
+  return (num || '').toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 // The code below is to support test
 if (typeof module !== 'undefined') {
   module.exports = {
@@ -42,5 +46,6 @@ if (typeof module !== 'undefined') {
     getLang,
     insertAfter,
     insertBefore,
+    numberWithSep,
   }
 }

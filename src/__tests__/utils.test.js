@@ -81,6 +81,14 @@ describe("Utils", function() {
       expect(document.querySelector('#child + #parent')).toBe(null);
     })
   })
-
-  
+  describe("numberWithSep", function() {
+    it("should add thousands separators to a nubmer", () => {
+      expect(utils.numberWithSep(100)).toBe('100');
+      expect(utils.numberWithSep(1000)).toBe('1,000');
+      expect(utils.numberWithSep(10000)).toBe('10,000');
+      expect(utils.numberWithSep(1000000)).toBe('1,000,000');
+      expect(utils.numberWithSep(null)).toBe('');
+      expect(utils.numberWithSep(undefined)).toBe('');
+    })
+  })  
 })
