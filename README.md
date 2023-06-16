@@ -17,7 +17,7 @@ var exampleElement = tplReplace('<p>Hello ${name} ${surname}!</p>', {
 Get langauge of the page based on the value of html lang attribute. Defaults to `en`.
 
 ```javascript
-utils.getLang()
+getLang()
 ```
 
 ## insertBefore
@@ -25,13 +25,13 @@ Inserts an element before parent element. When element is a string, it converts 
 
 ```javascript
 const parent = document.getElementById('parent')
-utils.insertAfter(parent, '<p>Hello Kitty</p>');
+insertAfter(parent, '<p>Hello Kitty</p>');
 
 // OR
 
 const parent = document.getElementById('parent')
 const child = document.getElementById('child')
-utils.insertAfter(parent, child);
+insertAfter(parent, child);
 ```
 
 
@@ -40,12 +40,12 @@ Inserts an element after parent element. When element is a string, it converts i
 
 ```javascript
 const parent = document.getElementById('parent')
-utils.insertBefore(parent, '<p>Hello Kitty</p>');
+insertBefore(parent, '<p>Hello Kitty</p>');
 
 // OR
 
 const parent = document.getElementById('parent')
 const child = document.getElementById('child')
-utils.insertbefore(parent, child);
+insertbefore(parent, child);
 ```
 
