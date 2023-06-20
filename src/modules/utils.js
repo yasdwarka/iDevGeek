@@ -39,6 +39,20 @@ function numberWithSep(num) {
   return (num || '').toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+function getAccountName(useWindow = window) {
+  var account = null;
+  var href = useWindow.location.href
+  if (href.indexOf('skrill.com') !== -1) {
+    account = 'skrill';
+  } else if (href.indexOf('neteller.com') !== -1) {
+    account = 'neteller';
+  } else if (href.indexOf('paysafecard.com') !== -1) {
+    account = 'paysafecard';
+  }
+  return account;
+}
+
+
 // The code below is to support test
 if (typeof module !== 'undefined') {
   module.exports = {
@@ -47,5 +61,6 @@ if (typeof module !== 'undefined') {
     insertAfter,
     insertBefore,
     numberWithSep,
+    getAccountName,
   }
 }

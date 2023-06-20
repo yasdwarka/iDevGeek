@@ -90,5 +90,31 @@ describe("Utils", function() {
       expect(utils.numberWithSep(null)).toBe('');
       expect(utils.numberWithSep(undefined)).toBe('');
     })
-  })  
+  })
+  describe("getAccountName", function() {
+    it("should return correct account name based on URL", () => {
+      const useWindow = {
+        location: {
+          href: 'https://www.paysafecard.com/en/'
+        }
+      }
+
+      expect(utils.getAccountName(useWindow)).toBe('paysafecard');
+      useWindow.location.href = 'https://www.skrill.com/en/business/'
+      expect(utils.getAccountName(useWindow)).toBe('skrill');
+      useWindow.location.href = 'https://www.skrill.com/en/?optimizely_token=442dcb639a367d697c194b484fb4c9579f7247df2b9cbf4be05c1462b4cbea69&optimizely_x=24338000829&optimizely_x_audiences=&optimizely_preview_layer_ids=24321810893&optimizely_snippet=s3-19453582680&optimizely_preview_mode_CAMPAIGN=24321810893'
+      expect(utils.getAccountName(useWindow)).toBe('skrill');
+      useWindow.location.href = 'https://www.neteller.com/es'
+      expect(utils.getAccountName(useWindow)).toBe('neteller');
+    })
+    it("should return null when run on unknown domain", () => {
+      const useWindow = {
+        location: {
+          href: 'https://www.bbc.co.uk/news'
+        }
+      }
+      expect(utils.getAccountName(useWindow)).toBe(null);
+    })
+  })
+
 })

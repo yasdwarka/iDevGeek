@@ -56,3 +56,11 @@ Format number with thousands separator.
 ````javascript
 var formatted = numberWithSep(1000); // -> 1,000
 ````
+
+## getAccountName
+Returns current website name. This is useful when we run the same code for Neteller and Skrill.
+
+````javascript
+var siteName = getAccountName();  // -> 'skrill' | 'neteller' | 'paysafecard' | null
+````
+
