@@ -3,6 +3,33 @@ const utils = require('../modules/utils');
 const parentMarkup = '<div id="parent">Parent mock element</div>'
 const childMarkup = '<span id="child">Child mock element</span>'
 
+const storageMock = () => {
+  let store = {};
+
+  return {
+    getItem(key) {
+      return store[key] || null;
+    },
+    setItem(key, value) {
+      store[key] = value.toString();
+    },
+    removeItem(key) {
+      delete store[key];
+    },
+    clear() {
+      store = {};
+    }
+  };
+}
+
+Object.defineProperty(window, 'localStorage', {
+  value: (storageMock)()
+});
+
+Object.defineProperty(window, 'sessionStorage', {
+  value: (storageMock)()
+});
+
 describe("Utils", function() {
   describe("tplReplace", function() {
     it("should place JSON key values in string", () => {
@@ -82,7 +109,7 @@ describe("Utils", function() {
     })
   })
   describe("numberWithSep", function() {
-    it("should add thousands separators to a nubmer", () => {
+    it("should add thousands separators to a number", () => {
       expect(utils.numberWithSep(100)).toBe('100');
       expect(utils.numberWithSep(1000)).toBe('1,000');
       expect(utils.numberWithSep(10000)).toBe('10,000');
@@ -116,5 +143,48 @@ describe("Utils", function() {
       expect(utils.getAccountName(useWindow)).toBe(null);
     })
   })
-
+  describe("setItem", function() {
+    it("should write an item to local storage ", () => {
+      window.localStorage.clear();
+      jest.restoreAllMocks();  
+      utils.setItem('test', 'test-value')
+      expect(window.localStorage.getItem('test')).toBe(JSON.stringify('test-value'));
+      utils.setItem('test', {test: "value"})
+      expect(window.localStorage.getItem('test')).toBe(JSON.stringify({test: "value"}));
+      utils.setItem('test', 123)
+      expect(window.localStorage.getItem('test')).toBe(JSON.stringify(123));
+    })
+    it("should write an item to session storage ", () => {
+      window.sessionStorage.clear();
+      jest.restoreAllMocks();  
+      utils.setItem('test', 'test-value', true)
+      expect(window.sessionStorage.getItem('test')).toBe(JSON.stringify('test-value'));
+      utils.setItem('test', {test: "value"}, true)
+      expect(window.sessionStorage.getItem('test')).toBe(JSON.stringify({test: "value"}));
+      utils.setItem('test', 123, true)
+      expect(window.sessionStorage.getItem('test')).toBe(JSON.stringify(123));
+    })
+  })
+  describe("getItem", function() {
+    it("should write an item to local storage ", () => {
+      window.localStorage.clear();
+      jest.restoreAllMocks();
+      utils.setItem('test', 'test-value')
+      expect(utils.getItem('test')).toBe('test-value');
+      utils.setItem('test', {test: "value"})
+      expect(utils.getItem('test')).toEqual({test: "value"});
+      utils.setItem('test', 123)
+      expect(utils.getItem('test')).toBe(123);
+    })
+    it("should write an item to session storage ", () => {
+      window.sessionStorage.clear();
+      jest.restoreAllMocks();
+      utils.setItem('test', 'test-value', true)
+      expect(utils.getItem('test', true)).toBe('test-value');
+      utils.setItem('test', {test: "value"}, true)
+      expect(utils.getItem('test', true)).toEqual({test: "value"});
+      utils.setItem('test', 123, true)
+      expect(utils.getItem('test', true)).toBe(123);
+    })
+  })
 })

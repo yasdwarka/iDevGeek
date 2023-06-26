@@ -63,4 +63,21 @@ Returns current website name. This is useful when we run the same code for Netel
 ````javascript
 var siteName = getAccountName();  // -> 'skrill' | 'neteller' | 'paysafecard' | null
 ````
+## setItem
+Save value to session or local storage.
+
+````javascript
+setItem('test', {test: "value"});   // Saves object to localStorage
+setItem('test', {test: "value"}, true); // Saves object to sessionStorage
+setItem('test', 123, true); // Saves number to sessionStorage
+setItem('test', 'lorem ipsum', true); // Saves string to sessionStorage
+````
+
+## getItem
+Get value from session or local storage. Returns `null` when not found
+
+````javascript
+getItem('test');   // Get value from  localStorage
+setItem('test', true); // Get value from sessionStorage
+````
 

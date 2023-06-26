@@ -1,4 +1,3 @@
-
 function tplReplace(stringToReplace, data) {
   return stringToReplace.replace(/\${([^{}]*)}/g,
     function (a, b) {
@@ -53,6 +52,22 @@ function getAccountName(useWindow = window) {
 }
 
 
+function getItem(key, useSessionStorage = false) {
+  var storageKey = useSessionStorage ? 'sessionStorage' : 'localStorage'
+  if (Object.prototype.hasOwnProperty.call(window, storageKey)) {
+    var result = window[storageKey].getItem(key);
+    return result !== null ? JSON.parse(result) : null;  
+  }
+  return null
+}
+
+function setItem(key, value, useSessionStorage = false) {
+  var storageKey = useSessionStorage ? 'sessionStorage' : 'localStorage'
+  if (Object.prototype.hasOwnProperty.call(window, storageKey)) {
+    window[storageKey].setItem(key, JSON.stringify(value));
+  }  
+}
+
 // The code below is to support test
 if (typeof module !== 'undefined') {
   module.exports = {
@@ -62,5 +77,7 @@ if (typeof module !== 'undefined') {
     insertBefore,
     numberWithSep,
     getAccountName,
+    getItem,
+    setItem,
   }
 }

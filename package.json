@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "jest": "jest --env=node --colors --coverage test",
+    "test": "npm run jest"
   },
   "author": "",
   "license": "ISC",
