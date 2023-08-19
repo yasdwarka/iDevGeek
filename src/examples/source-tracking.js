@@ -19,7 +19,7 @@ function getPlatformAndSource() {
   if (trafficSource && typeof trafficSource === 'string') {
     try {
       var parsed = JSON.parse(decodeURI(trafficSource));
-      if ( parsed.hasOwnProperty('timestamp')  && parsed.hasOwnProperty('source') && parsed.hasOwnProperty('platform')) {
+      if ( parsed.hasOwnProperty('timestamp') && parsed.hasOwnProperty('source') && parsed.hasOwnProperty('platform')) {
         platform = parsed.platform;
         source = parsed.source;
         timestamp = parsed.timestamp;
@@ -30,21 +30,20 @@ function getPlatformAndSource() {
   }
 	
   var ref = document.referrer;	
-	if (source === '') {
-		source = 'organic';
+  if (source === '') {
+		source = 'not-set';
 		var isPaidLink = (window.location.href.search(/(gclid)|(fbclid)/gi) !== -1);
-		if (ref.search(/(google)/gi) !== -1) {
-			if (isPaidLink) {
-				source = 'paid';
-			} else {
-				source = 'organic';
-			}
+    if (isPaidLink) {
+      source = 'paid';
+    } else if (ref.search(/(google)|(bing)|(yahoo)/gi) !== -1) {
+      source = 'organic';
 		} else if (ref.search(/(facebook)|(linkedin)|(linktr)|(youtube)/gi) !== -1) {
 			source = 'social';
+    } else if (ref.search(/(paysafecard.com)|(skrill.com)|(neteller.com)/gi) !== -1) {
+			source = 'internal';
 		} else if (ref !== '') {
-			source = 'unknown';
+			source = 'other';
 		}
-	
 	}
 	if (platform === '' && ref !== '') {
 		platform = ref.replace(/(https:\/\/)|(http:\/\/)|(www.)/gi, '').split('/')[0];
