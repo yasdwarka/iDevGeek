@@ -1,6 +1,5 @@
 var CAMPAIGN_ID = 'STS-123';
 var CAMPAIGN_START_DATE = '1/7/2023';
-var CAMPAIGN_DAYS_TO_ACTION = 3;
 var CAMPAIGN_SESSION_KEY = 'sts-clicked-banner';
 
 function getCookie(name) {
@@ -9,13 +8,6 @@ function getCookie(name) {
   }
   var match = document.cookie.match(RegExp('(?:^|;\\s*)' + escape(name) + '=([^;]*)'));
   return match ? match[1] : null;
-}
-
-function setItem(key, value, useSessionStorage = false) {
-  var storageKey = useSessionStorage ? 'sessionStorage' : 'localStorage'
-  if (Object.prototype.hasOwnProperty.call(window, storageKey)) {
-    window[storageKey].setItem(key, JSON.stringify(value));
-  }  
 }
 
 function getItem(key, useSessionStorage = false) {
@@ -51,13 +43,13 @@ function getDaysBetweenDates(dateOne, dateTwo) {
 }
 function hasDeposited(dateRegistered, lastDepositDate) {
   var daysBetween = getDaysBetweenDates(dateRegistered, lastDepositDate)
-  return !!(lastDepositDate && daysBetween !== null && daysBetween >= 0 && daysBetween <= CAMPAIGN_DAYS_TO_ACTION)
+  return !!(lastDepositDate && daysBetween !== null && daysBetween >= 0)
 }
 
 function hasClickedBanner() {
   // Add local storage read value
-  var clickedBanner = getItem(CAMPAIGN_SESSION_KEY) || false
-  return clickedBanner
+  var clickedBanner = getItem(CAMPAIGN_SESSION_KEY) || false;
+  return clickedBanner;
   // Add bTag option if local storage value is set to null
   // this will be a cookie value option
 }
@@ -87,22 +79,7 @@ if (lastDepositDate !== null) {
 var _isNewUser = isNewUser(createdOn);
 var _hasSeenCampaign = hasSeenCampaign();
 var _hasDeposited = hasDeposited(createdOn, lastDepositDate);
-var _hasClickedBanner = !hasClickedBanner();
-
-// Record click on the banner in a session storage
-var main = document.querySelector('main');
-if (main) {
-  main.addEventListener('click', function (event) {
-    var parentBanner = document.querySelector('#tt-dashboardTop__container');
-    // We need to check for click of the banner in this way because it is with inline onClick attribute
-    if (parentBanner 
-      && parentBanner.contains(event.target)
-      && !event.target.matches('#tt-dashboardTop__closeButton')
-    ) {
-      setItem(CAMPAIGN_SESSION_KEY, true);
-    };  
-  }, true);  
-}
+var _hasClickedBanner = hasClickedBanner();
 
 if (_hasSeenCampaign && _isNewUser && _hasDeposited && !_hasClickedBanner) {
   // show banner
