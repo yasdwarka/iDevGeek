@@ -1,5 +1,6 @@
-var CAMPAIGN_ID = 'STS-123';
-var CAMPAIGN_START_DATE = '1/7/2023';
+var CAMPAIGN_ID_NAME = 'utm_id';
+var CAMPAIGN_ID = '16284942';
+var CAMPAIGN_START_DATE = '1/9/2023';
 var CAMPAIGN_SESSION_KEY = 'sts-clicked-banner';
 
 function getCookie(name) {
@@ -58,7 +59,7 @@ function hasSeenCampaign() {
   var walletCookie = getCookie('wallet_utm');
   if (walletCookie && typeof walletCookie === 'string') {
     var params = new URLSearchParams(walletCookie);
-    var campaign = params.get('utm_campaign') || null;
+    var campaign = params.get(CAMPAIGN_ID_NAME) || null;
     return !!(campaign === CAMPAIGN_ID)
   }
   return false;

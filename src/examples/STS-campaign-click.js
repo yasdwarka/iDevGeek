@@ -1,3 +1,5 @@
+var CAMPAIGN_SESSION_KEY = 'sts-clicked-banner';
+
 function setItem(key, value, useSessionStorage = false) {
   var storageKey = useSessionStorage ? 'sessionStorage' : 'localStorage'
   if (Object.prototype.hasOwnProperty.call(window, storageKey)) {
