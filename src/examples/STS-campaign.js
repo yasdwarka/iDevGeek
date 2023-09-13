@@ -1,4 +1,4 @@
-var CAMPAIGN_ID_NAME = 'utm_id';
+var CAMPAIGN_ID_NAME = 'promo_id';
 var CAMPAIGN_ID = '16284942';
 var CAMPAIGN_START_DATE = '1/9/2023';
 var CAMPAIGN_SESSION_KEY = 'sts-clicked-banner';
@@ -56,13 +56,8 @@ function hasClickedBanner() {
 }
 
 function hasSeenCampaign() {
-  var walletCookie = getCookie('wallet_utm');
-  if (walletCookie && typeof walletCookie === 'string') {
-    var params = new URLSearchParams(walletCookie);
-    var campaign = params.get(CAMPAIGN_ID_NAME) || null;
-    return !!(campaign === CAMPAIGN_ID)
-  }
-  return false;
+  var promoCookie = getCookie(CAMPAIGN_ID_NAME);
+  return (promoCookie && typeof promoCookie === 'string' && String(promoCookie) === CAMPAIGN_ID) 
 }
 
 var visitor = Object.values(window.optimizely.get('visitor').custom);
