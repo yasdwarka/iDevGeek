@@ -33,7 +33,7 @@ function getValue(visitor, key) {
 }
 
 function isNewUser(dateRegistered) {
-  return !!(dateRegistered && dateRegistered >= CAMPAIGN_START_DATE)
+  return !!(dateRegistered && dateRegistered >= new Date(CAMPAIGN_START_DATE))
 }
 function getDaysBetweenDates(dateOne, dateTwo) {
   if (dateOne !== null && dateTwo !== null) {
@@ -79,10 +79,11 @@ if (lastDepositDate !== null) {
 
 var _isNewUser = isNewUser(createdOn);
 var _hasSeenCampaign = hasSeenCampaign();
+// ignore for the test as only user that have deposited can see the dashboard page
 var _hasDeposited = hasDeposited(createdOn, lastDepositDate);
 var _hasClickedBanner = hasClickedBanner();
 
-if (_hasSeenCampaign && _isNewUser && _hasDeposited && !_hasClickedBanner) {
+if (_hasSeenCampaign && _isNewUser && !_hasClickedBanner) {
   // show banner
   return true;
 }
