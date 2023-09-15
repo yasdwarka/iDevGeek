@@ -57,7 +57,16 @@ function hasClickedBanner() {
 
 function hasSeenCampaign() {
   var promoCookie = getCookie(CAMPAIGN_ID_NAME);
-  return (promoCookie && typeof promoCookie === 'string' && String(promoCookie) === CAMPAIGN_ID) 
+  if (promoCookie === null) {
+    var walletCookie = getCookie('wallet_utm');
+    if (walletCookie && typeof walletCookie === 'string') {
+      var params = new URLSearchParams(walletCookie);
+      var campaign = params.get('utm_id') || null;
+      return !!(String(campaign) === CAMPAIGN_ID)
+    }
+    return false;
+  }
+  return !!(promoCookie && String(promoCookie) === CAMPAIGN_ID) 
 }
 
 var visitor = Object.values(window.optimizely.get('visitor').custom);
@@ -78,8 +87,5 @@ var _hasSeenCampaign = hasSeenCampaign();
 var _hasDeposited = hasDeposited(createdOn, lastDepositDate);
 var _hasClickedBanner = hasClickedBanner();
 
-if (_hasSeenCampaign && _isNewUser && !_hasClickedBanner) {
-  // show banner
-  return true;
-}
-return false;
+// condition to show banner
+(_hasSeenCampaign && _isNewUser && !_hasClickedBanner)
