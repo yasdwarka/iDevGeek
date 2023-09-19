@@ -1,6 +1,6 @@
 var CAMPAIGN_ID_NAME = 'promo_id';
 var CAMPAIGN_ID = '16284942';
-var CAMPAIGN_START_DATE = '1/9/2023';
+var CAMPAIGN_START_DATE = '2023/09/01';
 var CAMPAIGN_SESSION_KEY = 'sts-clicked-banner';
 
 function getCookie(name) {
