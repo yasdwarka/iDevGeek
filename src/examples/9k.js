@@ -1,5 +1,5 @@
 var PROMO_ID_COOKIE_NAME = 'promo_id';
-var CAMPAIGN_ID_NAME = 'promo_id';
+var CAMPAIGN_ID_NAME = 'utm_id';
 var CAMPAIGN_ID = '16284950';
 var CAMPAIGN_START_DATE = '2023/09/20';
 
