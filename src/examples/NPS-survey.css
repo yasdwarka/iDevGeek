@@ -1,0 +1,286 @@
+.__user-rating {
+  margin: auto;
+  max-width: 44rem;
+  width: 100%;
+  text-align: left;
+}
+.__user-rating h2 {
+  width: 100%;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 -6px;
+}
+.__user-rating form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.__user-rating .rating-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 32px auto 24px;
+  max-width: 370px;
+  width: 100%;
+}
+@media only screen and (min-width: 769px)  {
+  .__user-rating .rating-wrapper {
+    margin: 24px auto;
+  }
+}
+.__user-rating .rating-wrapper > input {
+  position:absolute;
+  top:-9999px;
+}
+.__user-rating .rating-wrapper > label {
+  width: 50px;
+  height: 32px;
+  line-height: 32px;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size: 14px;
+  color:#333;
+  text-align: center;
+  border-radius: 90px;
+  background-color: rgba(0, 0, 0, 0.04);
+  margin: 4px 2px;
+}
+.__user-rating .rating-wrapper > label:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.__user-rating .rating-wrapper > input:checked + label {
+  background-color: #C2F2F5;
+}
+
+/* .__user-rating .rate {
+  height: 46px;
+  padding: 0;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.__user-rating .rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.__user-rating .rate:not(:checked) > label {
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.__user-rating .rate > label span {
+  position:absolute;
+  top:-9999px;
+}
+.__user-rating .rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.__user-rating .rate > input:checked ~ label {
+  color: #ffc700;    
+}
+.__user-rating .rate:not(:checked) > label:hover,
+.__user-rating .rate:not(:checked) > label:hover ~ label {
+  color: #deb217;  
+}
+.__user-rating .rate > input:checked + label:hover,
+.__user-rating .rate > input:checked + label:hover ~ label,
+.__user-rating .rate > input:checked ~ label:hover,
+.__user-rating .rate > input:checked ~ label:hover ~ label,
+.__user-rating .rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+} */
+
+.__user-rating .step-two {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.__user-rating .step-two textarea {
+  border-width: 0;
+  border-radius: 8px 8px 0 0;
+  padding: 0 12px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.04);
+  resize: none;
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  overflow: hidden;
+  height: 0;
+  border-bottom-width: 0;
+  margin: 0;
+}
+.__user-rating._user-has-rated .step-two textarea {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.38);
+  height: 132px;
+  padding: 16px 12px 15px;
+  transition: all .4s;
+  margin-bottom: 24px;
+}
+.__user-rating input.ps-flat-button {
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 769px)  {
+  .__user-rating input.ps-flat-button {
+    max-width: 120px;
+  }
+}
+.__user-rating textarea {
+  margin-bottom: 24px;
+}
+
+
+
+._ab-test-buttons-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  margin-top: 24px;
+}
+._ab-test-buttons-row #_ab-test-close {
+  margin-top: 16px;
+}
+@media only screen and (min-width: 769px)  {
+  ._ab-test-buttons-row {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  ._ab-test-buttons-row #_ab-test-close {
+    margin-top: 0;
+  }
+}
+._ab-test-buttons-row._ab-test-buttons-row--center {
+  justify-content: center;
+  margin-top: 48px;
+}
+
+
+
+._ab-test-modal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+._ab-test-modal-wrapper._ab-test-modal--hide {
+  display: none;
+}
+._ab-test-modal {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  margin: 16px auto;
+  max-width: 375px;
+  flex-direction: column;
+  z-index: 55;
+  background: #fff;
+  /* box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, .16); */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(0, 0, 0, 0.16);
+}
+@media only screen and (min-width: 769px)  {
+  ._ab-test-modal {
+    max-width: 496px;
+    border-radius: 16px;
+  }
+}
+._ab-test-modal-header {
+  width: 100%;
+}
+._ab-test-modal-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #fff;
+  border-radius: 40px;
+  width: 24px;
+  height: 24px;
+}
+._ab-test-modal-close svg {
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+}
+._ab-test-modal-body {
+  padding: 48px 16px 16px;
+}
+@media only screen and (min-width: 769px)  {
+  ._ab-test-modal-body {
+    padding: 64px 48px 46px;
+  }
+}
+._ab-test-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* backdrop-filter: blur(10px); */
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0.6;
+}
+
+#_ab-test-open-modal {
+  color: #872166;
+  display: none;
+  height: 60px;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 16px;
+  text-decoration: none;
+}
+#_ab-test-open-modal:hover {
+  background-color: #F6F6F6;
+}
+#_ab-test-open-modal:hover ._ab-test-icon svg {
+  transform: translateY(-3px);
+  transition: all 1s;
+}
+#_ab-test-open-modal ._ab-test-inner {
+  display: flex;
+  flex-direction: row;
+}
+#_ab-test-open-modal ._ab-test-right-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 13px;
+}
+#_ab-test-open-modal ._ab-test-right-column-top {
+  color: #7d2163;
+  font: 400 .75rem/.875rem Source Sans Pro;
+}
+#_ab-test-open-modal ._ab-test-right-column-bottom {
+  color: #7d2163;
+  font: 600 1rem/1.5rem Source Sans Pro;
+}
+#_ab-test-open-modal ._ab-test-icon {
+  width: 50px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#_ab-test-open-modal ._ab-test-icon svg {
+  fill: #872166;
+  width: 24px;
+  height: 24px;
+  transform: translateY(0);
+  transition: all 1s;
+}
