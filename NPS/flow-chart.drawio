@@ -1,0 +1,150 @@
+<mxfile host="Electron" modified="2024-01-11T11:57:03.998Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.18 Chrome/120.0.6099.199 Electron/28.1.2 Safari/537.36" etag="-AWmce2GnIlfS81BlstS" version="22.1.18" type="device">
+  <diagram name="Page-1" id="QvfOhT6iQcL5AtVfLE54">
+    <mxGraphModel dx="1026" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lNd9x1o3ssDQN29gm5Em-9" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="lNd9x1o3ssDQN29gm5Em-1" target="lNd9x1o3ssDQN29gm5Em-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="lNd9x1o3ssDQN29gm5Em-1" target="SGt1ip99uyxYp8tAhnd4-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-6" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="SGt1ip99uyxYp8tAhnd4-5" vertex="1" connectable="0">
+          <mxGeometry x="-0.1714" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lNd9x1o3ssDQN29gm5Em-1" value="Is customerId set" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="220" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="lNd9x1o3ssDQN29gm5Em-2" target="SGt1ip99uyxYp8tAhnd4-11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lNd9x1o3ssDQN29gm5Em-2" value="Read local storage (if present):&lt;br&gt;&quot;_ab-test-nps-last-seen&lt;span style=&quot;background-color: initial;&quot;&gt;&quot; timestamp&lt;/span&gt;&lt;br&gt;&quot;_ab-test-nps-views&quot;&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;counter&lt;br&gt;&lt;/span&gt;&quot;_ab-test-nps-submitted&quot; flag" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="160" y="340" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="lNd9x1o3ssDQN29gm5Em-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="lNd9x1o3ssDQN29gm5Em-5" target="lNd9x1o3ssDQN29gm5Em-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-10" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="lNd9x1o3ssDQN29gm5Em-10" vertex="1" connectable="0">
+          <mxGeometry x="-0.2571" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="lNd9x1o3ssDQN29gm5Em-5" target="SGt1ip99uyxYp8tAhnd4-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-9" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="SGt1ip99uyxYp8tAhnd4-8" vertex="1" connectable="0">
+          <mxGeometry x="-0.18" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lNd9x1o3ssDQN29gm5Em-5" value="Is Debug mode&lt;br&gt;(check for Optimizely preview)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="220" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lNd9x1o3ssDQN29gm5Em-34" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;NPS decission flow chart&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="260" y="23" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-2" value="END" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="410" y="110" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="SGt1ip99uyxYp8tAhnd4-7" target="SGt1ip99uyxYp8tAhnd4-22" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-7" value="Show NPS survey modal" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="440" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="SGt1ip99uyxYp8tAhnd4-11" target="SGt1ip99uyxYp8tAhnd4-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-14" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="SGt1ip99uyxYp8tAhnd4-13" vertex="1" connectable="0">
+          <mxGeometry x="0.31" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-16" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="SGt1ip99uyxYp8tAhnd4-11" target="SGt1ip99uyxYp8tAhnd4-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-11" value="has not submitted&lt;br&gt;&amp;amp;&lt;br&gt;has seen NPS &amp;lt; 2" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="220" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="SGt1ip99uyxYp8tAhnd4-15" target="SGt1ip99uyxYp8tAhnd4-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-19" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="SGt1ip99uyxYp8tAhnd4-18" vertex="1" connectable="0">
+          <mxGeometry y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GnUDVTTkXaW8BJLEJmRO-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SGt1ip99uyxYp8tAhnd4-15" target="GnUDVTTkXaW8BJLEJmRO-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GnUDVTTkXaW8BJLEJmRO-3" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="GnUDVTTkXaW8BJLEJmRO-2">
+          <mxGeometry x="0.0462" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-15" value="Has been over 90 days since last survey (local storage timestamp)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="215" y="572.5" width="130" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-17" value="Clear local storage items - timestamp, counter and submission flag" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="410" y="580" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.892;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="SGt1ip99uyxYp8tAhnd4-17" target="SGt1ip99uyxYp8tAhnd4-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="547" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="SGt1ip99uyxYp8tAhnd4-22" target="SGt1ip99uyxYp8tAhnd4-25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-22" value="Update local storage values with:&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&quot;_ab-test-nps-last-seen&quot; current timestamp -&amp;nbsp;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;&quot;_ab-test-nps-views&quot; increse&amp;nbsp;&lt;span style=&quot;border-color: var(--border-color); background-color: initial;&quot;&gt;counter by 1&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="630" y="120" width="290" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-23" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Modal flow chart&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="690" y="23" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="SGt1ip99uyxYp8tAhnd4-25" target="SGt1ip99uyxYp8tAhnd4-27" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-25" value="trigger optimizely event if dismissed&lt;br&gt;&quot;skril_dismissed_nps_customer_id&quot;&lt;br&gt;(this can be used to create an audience)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="653.75" y="260" width="242.5" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="SGt1ip99uyxYp8tAhnd4-27" target="SGt1ip99uyxYp8tAhnd4-29" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="SGt1ip99uyxYp8tAhnd4-27" target="SGt1ip99uyxYp8tAhnd4-35" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="976.25" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-27" value="Show NPS form" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="695" y="370" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="SGt1ip99uyxYp8tAhnd4-29" target="SGt1ip99uyxYp8tAhnd4-31" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-29" value="Submit NPS form" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="695" y="480" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-31" value="set local storage &quot;_ab-test-nps-submitted&quot; to true" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="695" y="580" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="SGt1ip99uyxYp8tAhnd4-31" target="SGt1ip99uyxYp8tAhnd4-35" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="982.97" y="549.02" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SGt1ip99uyxYp8tAhnd4-35" value="Close modal" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="940" y="487.5" width="82.5" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="GnUDVTTkXaW8BJLEJmRO-1" value="END" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="90" y="595" width="60" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
