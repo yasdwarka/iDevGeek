@@ -37,9 +37,11 @@ function insertBefore(existingNode, newNode) {
 var pageData = {
   en: {
     title: 'Thank you for participating.',
+    link1: '/en/crypto/?_optimizely=true'
   },
   de: {
     title: 'Vielen Dank für Ihre Teilnahme.',
+    link1: '/de/geld-ueberweisen/skrill-kryptowaehrung/?_optimizely=true'
   },   
 };
 
@@ -47,9 +49,25 @@ var utils = optimizely.get('utils');
 utils.waitForElement('main')
   .then(function(elem) {
     var lang = getLang()
-    var modal = '<div><h2>${title}</h2></div>'
+    var modal = '<div><h2>${title}</h2><a href="${link1}" class"_js-track-link">Lorem</a></div>'
     var translatedModal = tplReplace(modal, pageData[lang])
     console.log(translatedModal)
     insertBefore(document.querySelector('#main-content'), translatedModal)
+
+    wrapper.addEventListener('click', function (event) {
+      if (event.target.matches('._js-track-link')) {
+        // Track modal link
+        window['optimizely'] = window['optimizely'] || [];
+        window['optimizely'].push({
+          type: "event",
+          eventName: "exitModalCTA",
+          tags: {
+            revenue: 0, // Optional in cents as integer (500 == $5.00)
+            value: 0.00 // Optional as float
+          }
+        });
+      };  
+    }, false);
+
   }
 )
