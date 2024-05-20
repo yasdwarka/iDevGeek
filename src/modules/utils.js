@@ -52,20 +52,43 @@ function getAccountName(useWindow = window) {
 }
 
 
-function getItem(key, useSessionStorage = false) {
-  var storageKey = useSessionStorage ? 'sessionStorage' : 'localStorage'
-  if (Object.prototype.hasOwnProperty.call(window, storageKey)) {
-    var result = window[storageKey].getItem(key);
+function getItem(key, storageType) {
+  storageType = storageType || 'localStorage'
+  if (storageType === 'localStorage' || storageType === 'sessionStorage') {
+    var result = window[storageType].getItem(key);
     return result !== null ? JSON.parse(result) : null;  
+  } else if (storageType === 'cookie') {
+    var _escape = function(s) { 
+      return s.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1'); 
+    }
+    var match = document.cookie.match(RegExp('(?:^|;\\s*)' + _escape(key) + '=([^;]*)'));
+    return (match && match[1]) ? JSON.parse(match[1]) : null;
   }
   return null
 }
 
-function setItem(key, value, useSessionStorage = false) {
-  var storageKey = useSessionStorage ? 'sessionStorage' : 'localStorage'
-  if (Object.prototype.hasOwnProperty.call(window, storageKey)) {
-    window[storageKey].setItem(key, JSON.stringify(value));
-  }  
+function setItem(key, value, storageType, daysToExpire) {
+  daysToExpire = daysToExpire || 365
+  storageType = storageType || 'localStorage'
+  var stringified = JSON.stringify(value);
+  if (storageType === 'localStorage' || storageType === 'sessionStorage') {
+    window[storageType].setItem(key, stringified);
+  } else if (storageType === 'cookie') {
+    var date = new Date();
+    date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000)); // Calculate the expiration date
+    var expires = "expires=" + date.toUTCString();
+    document.cookie = key + "=" + stringified + "; " + expires + "; path=/";
+  }
+}
+
+function removeItem(key, storageType) {
+  storageType = storageType || 'localStorage'
+  if (storageType === 'localStorage' || storageType === 'sessionStorage') {
+    window[storageType].removeItem(key);
+  } else if (storageType === 'cookie') {
+    var expires = "expires=Thu, 01 Jan 1970 00:00:01 GMT";
+    document.cookie = key + "=" + "; " + expires + "; path=/";
+  }
 }
 
 // The code below is to support test
@@ -79,5 +102,6 @@ if (typeof module !== 'undefined') {
     getAccountName,
     getItem,
     setItem,
+    removeItem,
   }
 }
