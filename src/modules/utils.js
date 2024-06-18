@@ -91,6 +91,16 @@ function removeItem(key, storageType) {
   }
 }
 
+function getVisitorValue(visitor, key) {
+  var accountName = window.location.href.replace(/(www.)|(.com)|(https:\/\/)/gi, '').split('/').shift()
+  var def = {value: undefined};
+  var useArray = Array.isArray(visitor) ? visitor : Object.values(visitor);
+  var find = useArray.find(function(item) {
+    return item.name === accountName + '_' + key;
+  });
+  return find || def;
+}
+
 // The code below is to support test
 if (typeof module !== 'undefined') {
   module.exports = {
@@ -102,6 +112,7 @@ if (typeof module !== 'undefined') {
     getAccountName,
     getItem,
     setItem,
+    getVisitorValue,
     removeItem,
   }
 }
