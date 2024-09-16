@@ -1,24 +1,43 @@
-@keyframes scroll {
+/* @keyframes scroll {
 	0% { transform: translateX(0); }
-	100% { transform: translateX(calc(-250px * 7))}
+	100% { transform: translateX(calc(-116px * 7))}
 }
+.ab-test-slider	.slide-track {
+  width: calc(116px * 14);
+}
+ */
 
+#carousel-wrapper {
+  background: #F5F5F0;
+  margin: 16px 0;
+  padding-bottom: 16px;
+}
+#carousel-wrapper.carousel_option_1 .carousel-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-top: 24px;
+}
+#carousel-wrapper.carousel_option_1 .carousel-buttons a {
+  margin: 0 8px;
+  border-radius: 0;
+}
 .ab-test-slider-container {
 	align-items: center;
-	background: white;
 	display: flex;
-	justify-content: center;
-  margin: 32px 0;
+	justify-content: center; 
 }
 
 .ab-test-slider {
-	background: white;
-	height: 100px;
+	background: #F5F5F0;
+	height: 60px;
 	margin: auto;
 	overflow:hidden;
 	position: relative;
 	width: auto;
-  max-width: 1400px;
+  max-width: 100%;
+  padding: 16px 0 0;
 }
 .ab-test-slider::before,
 .ab-test-slider::after {
@@ -28,6 +47,7 @@
 	position: absolute;
 	width: 200px;
 	z-index: 2;
+  display: none;
 }
 	
 .ab-test-slider::after {
@@ -42,13 +62,133 @@
 }
 	
 .ab-test-slider	.slide-track {
-	animation: scroll 40s linear infinite;
 	display: flex;
-	width: calc(250px * 14);
+}
+
+.first-carousel {
+  margin-top: 0;
+}
+.second-carousel {
+  margin-top: 0;
 }
 
 .slide {
-	height: 100px;
-	width: 250px;
-  margin: 0 16px;
+	height: 46px;
+	width: 116px;
+  padding: 8px;
+  margin: 0 8px;
+  box-sizing: border-box;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 900px) {
+  .carousel_option_2 .carousel-inner-wrapper {
+
+  }
+}
+
+.carousel_option_3 .carousel-buttons {
+  display: none;
+}
+
+.slider-button {
+  display: none;
+}
+
+.carousel_option_2 .carousel-inner-wrapper .slide-track {
+  animation: none;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.carousel_option_2  .carousel-inner-wrapper .slide-track .slide {
+  display: none;
+}
+
+.carousel_option_2 .carousel-inner-wrapper .slide-track .slide:nth-child(1),
+.carousel_option_2 .carousel-inner-wrapper .slide-track .slide:nth-child(2),
+.carousel_option_2 .carousel-inner-wrapper .slide-track .slide:nth-child(3),
+.carousel_option_2 .carousel-inner-wrapper .slide-track .slide:nth-child(4),
+.carousel_option_2 .carousel-inner-wrapper .slide-track .slide:nth-child(5) {
+  display: flex;
+}
+
+.carousel_option_2 .carousel-inner-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+
+.carousel_option_2 .slider-button {
+  display: flex;
+  padding: 16px 0 0 8px;
+}
+.carousel_option_2 .slider-button a {
+  display: flex;
+  justify-content: center;
+  border-radius: 0;
+  min-width: 210px;
+  box-shadow: none;
+}
+.carousel_option_2 .carousel-buttons {
+  display: none;
+}
+.carousel_option_2 .ab-test-slider-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.carousel_option_2 .ab-test-slider {
+  width: 100%;
+  height: auto;
+  padding: 8px 0 0;
+}
+
+.carousel_option_2 .ab-test-slider .slide {
+  margin: 4px;
+}
+.carousel_option_2 .first-carousel {
+  margin-top: 16px;
+}
+.carousel_option_2 .first-carousel,
+.carousel_option_2 .second-carousel {
+  margin-bottom: 24px;
+}
+
+@media only screen and (min-width: 900px) {
+  .carousel_option_2 .first-carousel {
+    margin-bottom: 0;
+  }
+  
+  .carousel_option_2 .slider-button {
+    padding: 8px 0 0 8px;
+  }
+  .carousel_option_2 .ab-test-slider .slide {
+    margin: 8px;
+  }
+  .carousel_option_2 .first-carousel .slider-button a {
+    background-color: #fff;
+    border: 1px solid #3200ff;
+    color: #3200ff;
+  }
+  .carousel_option_2 .ab-test-slider-container {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+
+  .carousel_option_2 .ab-test-slider {
+    width: auto;
+    margin: 0;
+  }
 }
