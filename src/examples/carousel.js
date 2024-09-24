@@ -1,7 +1,28 @@
+// 0 - control
 // 1 - sliding carousel with buttons
 // 2 - static 5 images only with buttons
 // 3 - sliding only no buttons
-window.CAROUSEL_OPTION = 2;
+// this constant is to be present in each variant
+window.CAROUSEL_OPTION = 1;
+
+function addTracking(wrapper) {
+  wrapper.addEventListener('click', function (event) {
+    if (event.target.matches('#button1, main .image-cards__block a[href*="en/find-sales-outlet-1"],main .image-cards__block a[href*="de/verkaufsstelle-finden-1/"],main .image-cards__block a[href*="pl/wyszukiwanie-punktu-sprzedazy-1/"],main .image-cards__block a[href*="ro/gasire-puncte-de-vanzare-1/"],#carousel-wrapper a[href*="en/find-sales-outlet-1"],#carousel-wrapper a[href*="de/verkaufsstelle-finden-1/"],#carousel-wrapper a[href*="pl/wyszukiwanie-punktu-sprzedazy-1/"],#carousel-wrapper a[href*="ro/gasire-puncte-de-vanzare-1/"]')) {
+      window["optimizely"].push({
+        type: "event",
+        eventName: "sales_link",
+      });
+    }
+
+    if (event.target.matches('#button2, main .image-cards__block a[href*="en/show-online-shops/"],main .image-cards__block a[href*="de/webshops-anzeigen/"],main .image-cards__block a[href*="pl/wyswietl-sklepy-internetowe/"],main .image-cards__block a[href*="ro/afisare-magazine-online/"],#carousel-wrapper a[href*="en/show-online-shops/"],#carousel-wrapper a[href*="de/webshops-anzeigen/"],#carousel-wrapper a[href*="pl/wyswietl-sklepy-internetowe/"],#carousel-wrapper a[href*="ro/afisare-magazine-online/"]')) {
+      window["optimizely"].push({
+        type: "event",
+        eventName: "online_link",
+      });
+    }
+
+  }, false);
+}
 
 function tplReplace(stringToReplace, data) {
   return stringToReplace.replace(/\${([^{}]*)}/g, function (a, b) {
@@ -101,7 +122,7 @@ function getDataObject(data) {
 var utils = optimizely.get("utils");
 utils.waitForElement("section.image-cards-2-col").then(function (elem) {
   const hero = document.querySelector("section.decoration.homepage-hero-tabs");
-  if (hero) {
+  if (hero && window.CAROUSEL_OPTION !== 0) {
     var firstRowData = elem.querySelectorAll(
       ".col-12.col-md-6:nth-child(1) .image-cards__block img"
     );
@@ -151,5 +172,9 @@ utils.waitForElement("section.image-cards-2-col").then(function (elem) {
       "</div></div>";
 
     insertAfter(hero, carouselWrapper);
+  }
+  var main = document.querySelector('main')
+  if (main) {
+    addTracking(main)
   }
 });
